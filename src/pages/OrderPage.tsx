@@ -33,8 +33,6 @@ export function OrderPage() {
         <Body>
           Questions or catering:{' '}
           <MailLink href={`mailto:${site.email}`}>{site.email}</MailLink>
-          <br />
-          {site.phone}
         </Body>
         <CenterActions>
           <Button

@@ -1,59 +1,59 @@
 export const site = {
   name: 'Queenstown Social',
-  email: 'hello@queenstownsocial.nz',
-  addressLines: ['12 Camp Street', 'Queenstown', '9300'],
-  phone: '+64 3 442 0100',
+  email: 'queenstownsocialcafe@gmail.com',
+  addressLines: ['36 Queenstown Road', 'Battersea', 'SW8 3RY'],
+  socialLinks: '@queenstownsocialcafe',
+  instagramUrl: 'https://www.instagram.com/queenstownsocialcafe',
+
 }
 
 export const hours = [
-  { days: 'Wednesday – Friday', time: '8am – 3pm' },
+  { days: 'Monday – Friday', time: '7:30am – 3pm' },
   { days: 'Saturday – Sunday', time: '8am – 4pm' },
-  { days: 'Monday – Tuesday', time: 'Closed' },
 ]
 
 export const aboutCopy = [
-  'Queenstown Social has been serving brunch and long coffees beside the lake since 2018.',
+  'Queenstown Social has been serving brunch, coffee and delicious pastry in Battersea since December 2025.',
   'A lot has changed around town since then, but the brief has not: good produce, a calm room, and food we actually want to eat on our days off.',
-  'We work with small growers, bakers and roasters around the South Island. The menu moves with the seasons, with a few house staples that refuse to leave.',
+  'We work with small farms, butchers, bakers and roasters around the south of England. The menu changes regularly, with a few house staples that refuse to leave.',
 ]
 
 export const menuNotes = [
-  'The menu changes seasonally and may differ from the sample shown.',
-  'Weekdays are savoury-led. Weekends we lean into pancakes, fruit and a slower room.',
   'Vegan and gluten-free options are always available — ask and we will walk you through it.',
-  'Card only, and a discretionary 10% service charge is added to bills over $40. It all goes to the floor.',
+  'Card and cash accepted, and a discretionary 10% service charge is added to bills for customers that choose to dine in with us. It all goes to the floor.',
 ]
 
 export const suppliers = [
   {
     heading: 'coffee',
     items: [
-      'Ozone — New Zealand roast, rotating guest filter',
-      'Mojo — Wellington for espresso blends',
+      'Uniform — Single origin beans roasted in Bermondsey for espresso, decaf and retail',
+      'Coborn — For guest espresso',
     ],
   },
   {
     heading: 'baking',
     items: [
-      'Our own kitchen for sourdough and pastry',
-      'Le Relais — Arrowtown for weekend croissants',
+      'Seven Seeded — sourdough and pastry baked fresh daily',
     ],
   },
   {
-    heading: 'dairy, eggs + cheese',
+    heading: 'dairy & eggs',
     items: [
-      'Mahoe Farmhouse — Banks Peninsula cheeses',
-      'Local eggs from Gibbston Valley',
+      'Northiam Dairy - Milk and cream from a small farm in East Sussex',
+      'Fenton farm eggs - Free range eggs from a small farm in Somerset',
     ],
   },
   {
-    heading: 'fruit & veg',
+    heading: 'meat & fish',
     items: [
-      'Central Otago stone fruit in season',
-      'Wakatipu growers for greens and herbs',
+      'Butchers Block - Small batch, ethically sourced meat from a family butcher in Banstead',
+      'Life of Fish - Sustainable fish from a small family run supplier in Abbeville Road',
     ],
   },
 ]
+
+export const sampleMenuHeading = 'A small snapshot. Ask about vegan and gluten-free swaps.'
 
 export type MenuItem = {
   name: string
@@ -68,77 +68,177 @@ export type MenuSection = {
 
 export const sampleMenu: MenuSection[] = [
   {
-    title: 'To start',
+    title: 'Brunch',
     items: [
       {
-        name: 'Seasonal fruit + house yoghurt',
-        detail: 'toasted seeds, local honey',
+        name: 'House Granola (gf)',
+        detail: 'Orange and cardamom granola, hung yoghurt.',
+        price: '10',
+      },
+      {
+        name: 'French Toast of the week',
+        detail: '',
+        price: '14',
+      },
+      {
+        name: 'The Social Avo toast',
+        detail: 'Camomile and smoked almond dukkah, barrel-aged feta and hot honey',
+        price: '14.5',
+      },
+      {
+        name: 'Eggs Social',
+        detail: 'Eggs anyway served on sourdough with cultured butter',
+        price: '9.5',
+      },
+      {
+        name: 'Salmon Teriyaki and Avo',
+        detail: 'Toast with pickle chillies, crispy shallots and lime',
         price: '16',
       },
       {
-        name: 'Sourdough, cultured butter',
-        detail: 'with marmalade or Vegemite',
-        price: '9',
+        name: 'The Social Breakfast bap',
+        detail: 'Old spot sausage patty, streaky bacon, house hash browns, fried egg, chipotle ketchup and manchego',
+        price: '16.5',
       },
       {
-        name: 'Granola bowl',
-        detail: 'oat milk or yoghurt, poached pear',
-        price: '18',
-      },
-    ],
-  },
-  {
-    title: 'Plates',
-    items: [
-      {
-        name: 'Eggs on toast',
-        detail: 'poached, scrambled or fried, soft herbs',
-        price: '19',
+        name: 'Sweetcorn and spring onions fritters (gf)',
+        detail: 'Fenton Farm eggs, halloumi, avo, south indian tomato chutney',
+        price: '16',
       },
       {
-        name: 'Smoked warehou, potato cake',
-        detail: 'soft egg, dill yoghurt, pickled fennel',
-        price: '28',
-      },
-      {
-        name: 'Mushroom toast',
-        detail: 'thyme butter, whipped feta, chilli oil',
-        price: '24',
-      },
-      {
-        name: 'Social burger',
-        detail: 'beef, cheddar, pickles, aioli, fries',
-        price: '26',
-      },
-      {
-        name: 'Weekend pancakes',
-        detail: 'buttermilk, berries, maple — weekends only',
-        price: '22',
+        name: 'Eggs Börek',
+        detail: 'Poached eggs, spinach, dill, feta, crispy chilli oil, served on sourdough',
+        price: '15',
       },
     ],
   },
   {
-    title: 'Drinks',
+    title: 'Sides',
     items: [
       {
-        name: 'Espresso / batch filter',
-        detail: 'oat, almond or dairy',
-        price: '5 / 6',
-      },
-      {
-        name: 'House chai or hot chocolate',
+        name: 'House hash browns',
         detail: '',
         price: '6',
       },
       {
-        name: 'Fresh juice',
-        detail: 'orange, apple, or green',
-        price: '8',
+        name: 'Crispy Butchers Block streaky bacon',
+        detail: '',
+        price: '5',
       },
       {
-        name: 'Natural wine, beer',
-        detail: 'ask for what is open',
-        price: '12+',
+        name: 'Side of avo',
+        detail: '',
+        price: '4.5',
+      },
+      {
+        name: 'Extra toast',
+        detail: '',
+        price: '3.5',
+      },
+      {
+        name: 'Extra eggs any way',
+        detail: '',
+        price: '4.5',
+      },
+      {
+        name: 'Halloumi',
+        detail: '',
+        price: '5',
+      },
+      {
+        name: 'Old spot sausage patty',
+        detail: '',
+        price: '5',
+      },
+    ],
+  },
+  {
+    title: 'Coffee',
+    items: [
+      {
+        name: 'Espresso',
+        detail: '',
+        price: '3',
+      },
+      {
+        name: 'Macchiato',
+        detail: '',
+        price: '3.2',
+      },
+      {
+        name: 'Latte',
+        detail: '',
+        price: '4',
+      },
+      {
+        name: 'Flat white',
+        detail: '',
+        price: '4',
+      },
+      {
+        name: 'Cappuccino',
+        detail: '',
+        price: '4.3',
+      },
+      {
+        name: 'Long black/Americano',
+        detail: '',
+        price: '3.5',
+      },
+      {
+        name: 'Matcha Latte',
+        detail: '',
+        price: '4.5',
+      },
+      {
+        name: 'Chai Latte',
+        detail: '',
+        price: '4.5',
+      },
+      {
+        name: 'Hot Chocolate',
+        detail: '',
+        price: '4.5',
+      },
+      {
+        name: 'Loose Leaf Teas',
+        detail: '',
+        price: '3.5',
+      },
+      {
+        name: 'Alternative milks',
+        detail: '',
+        price: '0.3',
+      },
+      {
+        name: 'Ice',
+        detail: '',
+        price: '0.3',
+      },
+    ],
+  },
+  {
+    title: 'Drink',
+    items: [
+      {
+        name: 'Momo kombucha',
+        detail: '',
+        price: '6',
+      },
+      {
+        name: 'Freshly squeezed orange juice',
+        detail: '',
+        price: '6',
+      },
+      {
+        name: 'Hildon water (750ml)',
+        detail: '',
+        price: '5',
+      },
+      {
+        name: 'Jamu Soft Drinks',
+        detail: '',
+        price: '5',
       },
     ],
   },
@@ -155,6 +255,6 @@ export const images = {
     'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80',
   table:
     'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80',
-    logo: 
-    './src/assets/logo.png'
+    logo: './src/assets/logo.png',
+    logoLight: './src/assets/logo-light.png',
 }

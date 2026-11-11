@@ -4,11 +4,11 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
       olive: string
-      oliveDark: string
+      navy: string
       oliveMuted: string
       cream: string
       creamDeep: string
-      terracotta: string
+      accent: string
       ink: string
       muted: string
       paper: string

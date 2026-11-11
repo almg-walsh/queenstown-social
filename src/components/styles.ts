@@ -36,7 +36,8 @@ export const Page = styled.div`
 
 export const HeaderBar = styled.header`
 width: 100%;
-  background: ${({ theme }) => theme.colors.cream};
+  padding-bottom: 20px;
+  background: ${({ theme }) => theme.colors.olive};
   // padding: 28px 20px 20px;
   text-align: center;
 
@@ -79,14 +80,16 @@ export const Nav = styled.nav`
 `
 
 export const NavItem = styled(NavLink)`
-  font-size: 0.95rem;
+  font-size: 1rem;
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.terracotta};
+  color: ${({ theme }) => theme.colors.cream};
   padding: 4px 0;
+  border-bottom: 2px solid transparent;
 
   &.active,
   &:hover {
-    color: ${({ theme }) => theme.colors.olive};
+    color: ${({ theme }) => theme.colors.paper};
+    border-bottom-color: ${({ theme }) => theme.colors.accent};
   }
 `
 
@@ -100,13 +103,18 @@ export const Hero = styled.img`
   object-fit: cover;
 `
 
-export const Section = styled.section`
-  // padding: 40px 20px;
-  padding-top: 40px;
+type Tone = 'navy' | 'olive' | 'cream'
 
-  // @media (min-width: 768px) {
-  //   padding: 72px 40px;
-  // }
+export const Section = styled.section<{ $tone?: Tone }>`
+  padding: 56px 20px;
+  background: ${({ theme, $tone = 'cream' }) =>
+    $tone === 'navy' ? theme.colors.ink : $tone === 'olive' ? theme.colors.olive : 'transparent'};
+  color: ${({ theme, $tone = 'cream' }) =>
+    $tone === 'cream' ? theme.colors.ink : theme.colors.cream};
+
+  @media (min-width: 768px) {
+    padding: 96px 40px;
+  }
 `
 
 export const AboutGrid = styled.div`
@@ -117,7 +125,7 @@ export const AboutGrid = styled.div`
   align-items: center;
 
   @media (min-width: 900px) {
-    grid-template-columns: 1fr minmax(240px, 360px) 1fr;
+    grid-template-columns: 1fr minmax(240px, 360px);
     gap: 40px;
   }
 `
@@ -130,17 +138,15 @@ export const Photo = styled.img`
 export const CopyBlock = styled.div`
   text-align: center;
   font-family: ${({ theme }) => theme.fonts.serif};
-  font-size: 1.15rem;
+  font-size: 1rem;
   line-height: 1.7;
-  color: ${({ theme }) => theme.colors.ink};
+  max-width: 760px;
+  margin: 0 auto;
 
   p {
     margin: 0 0 1.1em;
   }
 
-  @media (min-width: 768px) {
-    font-size: 1.22rem;
-  }
 `
 
 export const Notes = styled.div`
@@ -148,7 +154,7 @@ export const Notes = styled.div`
   margin: 0 auto;
   text-align: center;
   font-family: ${({ theme }) => theme.fonts.serif};
-  font-size: 1.12rem;
+  font-size: 1rem;
   line-height: 1.7;
 
   p {
@@ -159,7 +165,7 @@ export const Notes = styled.div`
 export const CenterActions = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 28px;
+  margin: 28px 0 28px 0;
 `
 
 export const WidePhoto = styled.img`
@@ -183,9 +189,11 @@ export const Split = styled.div`
 
 export const Heading = styled.h2`
   font-family: ${({ theme }) => theme.fonts.serif};
-  font-weight: 500;
-  font-size: 1.7rem;
-  margin: 0 0 16px;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 20px;
   text-align: center;
 `
 
@@ -193,14 +201,16 @@ export const Body = styled.p`
   margin: 0 0 0.9em;
   text-align: center;
   font-family: ${({ theme }) => theme.fonts.serif};
-  font-size: 1.12rem;
+  font-size: 1rem;
   line-height: 1.7;
 `
 
 export const MailLink = styled.a`
-  color: ${({ theme }) => theme.colors.olive};
+  color: inherit;
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration-color: ${({ theme }) => theme.colors.accent};
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 `
 
 export const SupplierList = styled.div`
@@ -208,7 +218,7 @@ export const SupplierList = styled.div`
   margin: 0 auto;
   text-align: center;
   font-family: ${({ theme }) => theme.fonts.serif};
-  font-size: 1.08rem;
+  font-size: 1rem;
   line-height: 1.65;
 
   h3 {
@@ -216,8 +226,9 @@ export const SupplierList = styled.div`
     font-size: 0.78rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    font-weight: 500;
-    color: ${({ theme }) => theme.colors.olive};
+    font-weight: 700;
+    color: inherit;
+    opacity: 0.75;
     margin: 28px 0 8px;
   }
 
@@ -226,39 +237,55 @@ export const SupplierList = styled.div`
   }
 `
 
-export const FooterBar = styled.footer`
-  padding: 32px 20px 48px;
+export const FooterBar = styled.footer<{ $seamless?: boolean }>`
+  padding: 40px 20px 56px;
   text-align: center;
-  color: ${({ theme }) => theme.colors.muted};
-  font-size: 0.85rem;
+  background: ${({ theme }) => theme.colors.olive};
+  color: ${({ theme }) => theme.colors.cream};
+  border-top: ${({ $seamless, theme }) =>
+    $seamless ? 'none' : `4px solid ${theme.colors.accent}`};
+  font-size: 1rem;
 `
 
 export const PageTitle = styled.h1`
   font-family: ${({ theme }) => theme.fonts.serif};
   font-weight: 500;
-  font-size: clamp(2rem, 6vw, 3rem);
+  font-size: clamp(2.4rem, 8vw, 4.5rem);
+  color: ${({ theme }) => theme.colors.olive};
+  font-weight: 700;
+  letter-spacing: -0.02em;
   text-align: center;
-  margin: 0 0 28px;
+  margin: 0 0 40px;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 3px;
+    margin: 20px auto 0;
+    background: ${({ theme }) => theme.colors.accent};
+  }
 `
 
 export const MenuWrap = styled.div`
-  max-width: 640px;
-  margin: 0 auto;
+  max-width: 720px;
+  margin: 48px auto 0;
 `
 
 export const MenuGroup = styled.section`
-  margin-bottom: 36px;
+  margin-bottom: 56px;
 `
 
 export const MenuGroupTitle = styled.h2`
   font-family: ${({ theme }) => theme.fonts.sans};
-  font-size: 0.78rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-weight: 500;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  letter-spacing: -0.01em;
+  font-weight: 700;
   color: ${({ theme }) => theme.colors.olive};
-  text-align: center;
-  margin: 0 0 16px;
+  text-align: left;
+  margin: 0 0 8px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.olive};
 `
 
 export const MenuRow = styled.div`
@@ -271,27 +298,36 @@ export const MenuRow = styled.div`
 
 export const MenuName = styled.div`
   font-family: ${({ theme }) => theme.fonts.serif};
-  font-size: 1.2rem;
+  font-size: 1rem;
 `
 
 export const MenuDetail = styled.div`
   grid-column: 1;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: ${({ theme }) => theme.colors.muted};
 `
 
 export const MenuPrice = styled.div`
   font-family: ${({ theme }) => theme.fonts.serif};
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: ${({ theme }) => theme.colors.olive};
 `
 
 export const HoursList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0 0 24px;
+  margin: 0 auto 32px;
+  max-width: 480px;
   text-align: center;
   font-family: ${({ theme }) => theme.fonts.serif};
-  font-size: 1.15rem;
+  font-size: 1rem;
   line-height: 1.8;
+`
+
+export const ServiceNote = styled.p`
+  max-width: 640px;
+  margin: 48px auto 0;
+  text-align: center;
+  font-size: 1rem;
+  color: ${({ theme }) => theme.colors.muted};
 `

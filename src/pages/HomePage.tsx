@@ -1,12 +1,6 @@
-import { Button } from '@mui/material'
-import { Link } from 'react-router-dom'
-import {
-  aboutCopy,
-  images,
-  menuNotes,
-  site,
-  suppliers,
-} from '../data/content'
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
+import { aboutCopy, images, menuNotes, site, suppliers } from "../data/content";
 import {
   AboutGrid,
   Body,
@@ -21,7 +15,7 @@ import {
   Split,
   SupplierList,
   WidePhoto,
-} from '../components/styles'
+} from "../components/styles";
 
 export function HomePage() {
   return (
@@ -31,26 +25,23 @@ export function HomePage() {
         alt="Brunch plates, coffee and toast on a cafe table"
       />
 
-      <Section>
-        <AboutGrid>
-          <CopyBlock>
-            {aboutCopy.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </CopyBlock>
-        </AboutGrid>
+      <Section $tone="olive">
+        <CopyBlock>
+          {aboutCopy.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </CopyBlock>
       </Section>
 
-      <Section style={{ paddingTop: 0 }}>
-      <AboutGrid>
+      <Section>
+        <AboutGrid>
           <Photo src={images.interior} alt="The dining room" />
 
-        <Notes>
-          {menuNotes.map((note) => (
-            <p key={note}>{note}</p>
-          ))}
-        </Notes>
-      
+          <Notes>
+            {menuNotes.map((note) => (
+              <p key={note}>{note}</p>
+            ))}
+          </Notes>
         </AboutGrid>
         <CenterActions>
           <Button component={Link} to="/menu" variant="outlined">
@@ -59,12 +50,9 @@ export function HomePage() {
         </CenterActions>
       </Section>
 
-      <WidePhoto
-        src={images.table}
-        alt="Shared plates on a linen table"
-      />
+      <WidePhoto src={images.table} alt="Shared plates on a linen table" />
 
-      <Section>
+      <Section $tone="olive">
         <Split>
           <div>
             <Heading>Find us</Heading>
@@ -77,11 +65,11 @@ export function HomePage() {
               ))}
             </Body>
             <Body>
-              We do not take bookings — first come, first served. The
-              host will give you a wait time at the door.
+              We do not take bookings — first come, first served. The host will
+              give you a wait time at the door.
             </Body>
             <Body>
-              Get in touch:{' '}
+              Get in touch:{" "}
               <MailLink href={`mailto:${site.email}`}>{site.email}</MailLink>
             </Body>
           </div>
@@ -101,5 +89,5 @@ export function HomePage() {
         </Split>
       </Section>
     </>
-  )
+  );
 }

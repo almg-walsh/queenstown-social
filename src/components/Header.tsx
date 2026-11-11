@@ -22,7 +22,7 @@ export function Header() {
   return (
     <HeaderBar>
       <BrandLink to="/" aria-label="Queenstown Social home">
-      <Photo style={{ width: '85%', marginTop: '10px' }} src={images.logo} alt="The kitchen pass" />
+      <Photo style={{ width: '65%', marginTop: '10px' }} src={images.logoLight} alt="The kitchen pass" />
       </BrandLink>
       <Nav aria-label="Site">
         {links.map((link) => (

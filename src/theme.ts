@@ -2,23 +2,23 @@ import { createTheme } from '@mui/material/styles'
 import type { DefaultTheme } from 'styled-components'
 
 export const palette = {
-  olive: '#686a47',
-  oliveDark: '#3f412c',
+  olive: '#676A49',
+  navy: '#1B263B',
   oliveMuted: '#8a8c70',
-  cream: '#f3efe4',
-  creamDeep: '#e6decc',
-  terracotta: '#c46a4a',
-  ink: '#2c2d22',
-  muted: '#6b6d58',
-  paper: '#faf7f0',
+  cream: '#E0E1DD',
+  creamDeep: '#cdcfc9',
+  accent: '#C8963E',
+  ink: '#0D1B2A',
+  muted: '#2F3E46',
+  paper: '#f1f2ef',
 } as const
 
 export const styledTheme: DefaultTheme = {
   colors: palette,
   fonts: {
-    display: '"Allura", cursive',
-    serif: '"Cormorant Garamond", serif',
-    sans: '"Outfit", sans-serif',
+    display: '"Manrope", cursive',
+    serif: '"Manrope", serif',
+    sans: '"Manrope", sans-serif',
   },
 }
 
@@ -26,11 +26,11 @@ export const muiTheme = createTheme({
   palette: {
     primary: {
       main: palette.olive,
-      dark: palette.oliveDark,
+      dark: palette.navy,
       contrastText: palette.paper,
     },
     secondary: {
-      main: palette.terracotta,
+      main: palette.accent,
       contrastText: palette.paper,
     },
     background: {
@@ -43,17 +43,18 @@ export const muiTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Outfit", sans-serif',
+    fontFamily: '"Manrope", sans-serif',
     h1: {
-      fontFamily: '"Cormorant Garamond", serif',
+      fontFamily: '"Manrope", serif',
       fontWeight: 500,
     },
     h2: {
-      fontFamily: '"Cormorant Garamond", serif',
+      fontFamily: '"Manrope", serif',
       fontWeight: 500,
     },
     button: {
       textTransform: 'none',
+      fontSize: '1rem',
       fontWeight: 500,
       letterSpacing: '0.04em',
     },
@@ -72,7 +73,7 @@ export const muiTheme = createTheme({
           borderColor: palette.olive,
           color: palette.olive,
           '&:hover': {
-            borderColor: palette.oliveDark,
+            borderColor: palette.navy,
             backgroundColor: 'rgba(104, 106, 71, 0.08)',
           },
         },
